@@ -5,13 +5,16 @@ import org.springframework.web.bind.annotation.*;
 // Restcontroller = Controller + ResponseBody
 @RestController
 public class HelloController {
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello abhishek";
+    @GetMapping("/hello/{name}")
+    public HelloResponse hello(@PathVariable String name) {
+        return new HelloResponse("Hello "+name);
     }
 
     @PostMapping("/hello")
-    public String sayHello(@RequestBody String name) {
-        return "Hello " + name;
+    public HelloResponse sayHello(@RequestBody String name) {
+        return new HelloResponse("Hello " + name);
     }
+    // returning object automatically converted the response to json response
+    // conversion is handled by spring using message converter
+    // handled by jackson library
 }

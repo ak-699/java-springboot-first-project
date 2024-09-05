@@ -18,3 +18,6 @@ public class HelloController {
     // conversion is handled by spring using message converter
     // handled by jackson library
 }
+
+// controller will intercept the request
+// service will handle the business logic
